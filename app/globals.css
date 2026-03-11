@@ -3,27 +3,41 @@
 @tailwind utilities;
 
 :root {
-  --background: 220 33% 98%;
-  --foreground: 224 30% 12%;
+  --background: 220 29% 97%;
+  --foreground: 225 36% 12%;
   --card: 0 0% 100%;
-  --card-foreground: 224 30% 12%;
-  --border: 220 18% 88%;
-  --muted: 220 20% 95%;
-  --muted-foreground: 222 14% 41%;
-  --primary: 222 84% 56%;
+  --card-foreground: 225 36% 12%;
+  --border: 220 19% 88%;
+  --muted: 220 24% 94%;
+  --muted-foreground: 224 13% 38%;
+  --primary: 224 86% 58%;
   --primary-foreground: 210 40% 98%;
+  --secondary: 262 82% 58%;
+  --secondary-foreground: 210 40% 98%;
+  --accent: 199 89% 48%;
+  --accent-foreground: 210 40% 98%;
+  --surface: 218 29% 99%;
+  --surface-elevated: 0 0% 100%;
+  --ring: 224 86% 58%;
 }
 
 .dark {
-  --background: 224 27% 8%;
+  --background: 228 24% 8%;
   --foreground: 210 40% 96%;
-  --card: 224 24% 12%;
+  --card: 226 24% 12%;
   --card-foreground: 210 40% 96%;
-  --border: 224 16% 22%;
-  --muted: 224 18% 16%;
-  --muted-foreground: 218 14% 70%;
-  --primary: 218 90% 64%;
+  --border: 225 15% 24%;
+  --muted: 226 18% 16%;
+  --muted-foreground: 218 15% 72%;
+  --primary: 220 90% 67%;
   --primary-foreground: 222 47% 11%;
+  --secondary: 263 90% 68%;
+  --secondary-foreground: 248 58% 10%;
+  --accent: 197 88% 57%;
+  --accent-foreground: 223 47% 10%;
+  --surface: 228 23% 10%;
+  --surface-elevated: 228 24% 12%;
+  --ring: 220 90% 67%;
 }
 
 * {
@@ -32,4 +46,47 @@
 
 body {
   @apply bg-background text-foreground antialiased;
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  @apply bg-primary/20 text-foreground;
+}
+
+@layer utilities {
+  .surface-panel {
+    @apply rounded-2xl border border-border/70 bg-card/90 shadow-sm backdrop-blur;
+  }
+
+  .surface-elevated {
+    @apply rounded-2xl border border-border/70 bg-[hsl(var(--surface-elevated))] shadow-lg shadow-slate-900/5 dark:shadow-black/30;
+  }
+
+  .focus-ring {
+    @apply outline-none ring-0 transition focus-visible:ring-2 focus-visible:ring-[hsl(var(--ring))]/45 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  .premium-table {
+    @apply w-full border-separate border-spacing-0 overflow-hidden rounded-2xl border border-border/70 bg-card;
+  }
+
+  .premium-table thead {
+    @apply bg-muted/60;
+  }
+
+  .premium-table th {
+    @apply border-b border-border/70 px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground;
+  }
+
+  .premium-table td {
+    @apply border-b border-border/50 px-4 py-3.5 text-sm;
+  }
+
+  .premium-table tbody tr {
+    @apply transition-colors hover:bg-muted/40;
+  }
+
+  .premium-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
 }
