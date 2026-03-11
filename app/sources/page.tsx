@@ -12,13 +12,43 @@ export default function SourcesPage() {
         description="Manage approved policy repositories, freshness checks, and authority tiers used by the assistant."
       />
 
-      <Card className="rounded-2xl p-6">
-        <h3 className="text-base font-semibold">Source registry</h3>
-        <p className="mt-2 text-sm text-muted-foreground">
-          {/* TODO: Bind to source-registry records and show sync status, owner, and trust tier. */}
-          This table will show policy domains, trust tiers, and ingestion timestamps.
-        </p>
-        <div className="mt-5 h-56 rounded-xl border border-dashed border-border bg-muted/30" />
+      <Card className="p-0">
+        <div className="flex items-center justify-between border-b border-border/70 px-6 py-4">
+          <h3 className="text-base font-semibold">Source registry</h3>
+          <span className="rounded-md border border-border/70 bg-muted/70 px-2 py-1 text-xs text-muted-foreground">3 active domains</span>
+        </div>
+        <div className="p-4">
+          <table className="premium-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Trust tier</th>
+                <th>Last ingestion</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Leave & Absence</td>
+                <td>Tier 1</td>
+                <td>2 hours ago</td>
+                <td className="text-emerald-600 dark:text-emerald-400">Healthy</td>
+              </tr>
+              <tr>
+                <td>Compensation</td>
+                <td>Tier 1</td>
+                <td>Yesterday</td>
+                <td className="text-amber-600 dark:text-amber-400">Pending refresh</td>
+              </tr>
+              <tr>
+                <td>Code of Conduct</td>
+                <td>Tier 2</td>
+                <td>3 days ago</td>
+                <td className="text-muted-foreground">Monitoring</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </Card>
 
       <EmptyState
