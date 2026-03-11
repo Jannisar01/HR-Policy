@@ -3,12 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --background: 222 47% 98%;
-  --foreground: 224 25% 14%;
+  --background: 220 33% 98%;
+  --foreground: 224 30% 12%;
   --card: 0 0% 100%;
-  --border: 220 20% 88%;
+  --card-foreground: 224 30% 12%;
+  --border: 220 18% 88%;
   --muted: 220 20% 95%;
-  --primary: 221 83% 53%;
+  --muted-foreground: 222 14% 41%;
+  --primary: 222 84% 56%;
+  --primary-foreground: 210 40% 98%;
+}
+
+.dark {
+  --background: 224 27% 8%;
+  --foreground: 210 40% 96%;
+  --card: 224 24% 12%;
+  --card-foreground: 210 40% 96%;
+  --border: 224 16% 22%;
+  --muted: 224 18% 16%;
+  --muted-foreground: 218 14% 70%;
+  --primary: 218 90% 64%;
+  --primary-foreground: 222 47% 11%;
 }
 
 * {

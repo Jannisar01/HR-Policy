@@ -21,7 +21,7 @@ const buttonVariants = cva(
   }
 );
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+type ButtonProps = import("react").ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
 export function Button({ className, variant, size, ...props }: ButtonProps) {
