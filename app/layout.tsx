@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
+import { ThemeScript } from "@/components/theme/theme-script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "UWO HR Policy Assistant",
-  description: "Grounded, citation-first answers for approved HR policy sources"
+  title: "HR Policy Platform",
+  description: "Enterprise workspace for policy assistance, governance, and evaluations"
 };
 
 export default function RootLayout({
   children
 }: Readonly<{
-  children: React.ReactNode;
+  children: import("react").ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeScript />
+        {children}
+      </body>
     </html>
   );
 }
